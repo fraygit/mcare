@@ -1,0 +1,201 @@
+﻿<section class="page-header page-header-xs">
+    <div class="container text-right">
+
+        <!-- breadcrumbs -->
+        <ol class="breadcrumb  breadcrumb-inverse">
+            <li><a href="/">Home</a></li>
+            <li class="active">Post an item</li>
+        </ol><!-- /breadcrumbs -->
+
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <div class="row">
+
+            <!-- FORM -->
+            <div class="col-md-9 col-sm-9">
+
+                <h3>Post an item to sell</h3>
+
+                <!-- Alert Success -->
+                <div id="alert_success" class="alert alert-success margin-bottom-30">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>Thank You!</strong> Your message successfully sent!
+                </div><!-- /Alert Success -->
+                <!-- Alert Failed -->
+                <div id="alert_failed" class="alert alert-danger margin-bottom-30">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>[SMTP] Error!</strong> Internal server error!
+                </div><!-- /Alert Failed -->
+                <!-- Alert Mandatory -->
+                <div id="alert_mandatory" class="alert alert-danger margin-bottom-30">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+                </div><!-- /Alert Mandatory -->
+
+
+                <form>
+                    <fieldset>
+                        <input type="hidden" name="action" value="contact_send">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Basic Detail</h2>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="contact:name">Title *</label>
+                                            <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="contact_department">Category</label>
+                                            <select class="form-control pointer" name="contact[department]">
+                                                <option value="">--- Select ---</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Webdesign">Webdesign</option>
+                                                <option value="Architecture">Architecture</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="contact_department">Duration</label>
+                                            <select class="form-control pointer" name="contact[department]">
+                                                <option value="1">1 day</option>
+                                                <option value="2">2 day</option>
+                                                <option value="3">3 day</option>
+                                                <option value="4">4 day</option>
+                                                <option value="5">5 day</option>
+                                                <option value="6">6 day</option>
+                                                <option value="7" selected>1 week</option>
+                                                <option value="14">2 weeks</option>
+                                                <option value="30">1 month</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="contact:message">Description *</label>
+                                            <textarea required="" maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <label for="contact:message">Is this item brand new</label>
+                                            <label class="switch switch-primary switch-round">
+                                                <input type="checkbox" checked="">
+                                                <span class="switch-label" data-on="NO" data-off="YES"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Pricing and Shipping</h2>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <label for="contact:message">Is this item free?</label>
+                                            <label class="switch switch-primary switch-round">
+                                                <input type="checkbox" checked="" ng-model="ListingInfo.IsFree" ng-change="ClickIsFree()">
+                                                <span class="switch-label" data-on="YES" data-off="NO"></span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="ShowPricing">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <label for="contact:name">Stating Price *</label>
+                                            <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="contact:name">Reserve Price</label>
+                                            <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="contact:name">Buy Now Price</label>
+                                            <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <label for="contact:name">Shipping Type *</label>
+                                            <select class="form-control pointer" name="contact[department]" ng-model="ListingInfo.ShippingType" ng-change="ShippingTypeChange()">
+                                                <option value="1" selected>To be arranged</option>
+                                                <option value="2">Must pickup</option>
+                                                <option value="3">To be shipped</option>
+                                            </select>                                        
+                                        </div>
+                                        <div class="col-md-4" ng-show="ShowShippingCost">
+                                            <label for="contact:name">Shipping Cost</label>
+                                            <input required="" type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /FORM -->
+            <!-- INFO -->
+            <div class="col-md-3 col-sm-3">
+
+                <h2>Visit Us</h2>
+
+                <p>
+                    Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.
+                </p>
+
+                <hr>
+
+                <p>
+                    <span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> Street Name, City Name, Country</span>
+                    <span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">1800-555-1234</a></span>
+                    <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a></span>
+                </p>
+
+                <hr>
+
+                <h4 class="font300">Business Hours</h4>
+                <p>
+                    <span class="block"><strong>Monday - Friday:</strong> 10am to 6pm</span>
+                    <span class="block"><strong>Saturday:</strong> 10am to 2pm</span>
+                    <span class="block"><strong>Sunday:</strong> Closed</span>
+                </p>
+
+            </div>
+            <!-- /INFO -->
+
+        </div>
+
+    </div>
+</section>

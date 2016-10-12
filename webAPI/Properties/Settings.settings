@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="mcare.API.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Parko_API_paymentexpress_PaymentExpressWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://uat.paymentexpress.com/WS/PXWS.asmx</Value>
+    </Setting>
+    <Setting Name="Parko_API_pxfusion_PxFusion" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://uat.paymentexpress.com/PxF/pxf.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

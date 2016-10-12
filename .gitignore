@@ -1,0 +1,6 @@
+ParkoEmailSender/bin/
+ParkoEmailSender/obj/
+webAPI/bin/
+webAPI/obj/
+webAppTemplate.MongoData/obj/
+webAppTemplate.MongoData/bin/
