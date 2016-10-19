@@ -1,4 +1,4 @@
 ﻿var appGlobalSettings = {
-    apiBaseUrl: "http://localhost:1221/api",
-    sessionTokenName: 'auctionToken'
+    apiBaseUrl: "http://localhost:4002/api",
+    sessionTokenName: 'mcareToken'
 };

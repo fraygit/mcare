@@ -24,11 +24,21 @@ mcareApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/home',
             views: {
                 'container@': {
-                    templateUrl: 'js/app/templates/home.html'
+                    templateUrl: 'js/app/templates/home.html',
+                    controller: 'HomeController'
                 }
             }
         })
 
+        .state('patientprofile', {
+            url: '/patientprofile',
+            views: {
+                'container@': {
+                    templateUrl: 'js/app/templates/patientprofile.html',
+                    controller: 'PatientProfilerController'
+                }
+            }
+        })
 
 });
 

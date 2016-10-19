@@ -43,7 +43,8 @@ namespace mcare.API.Controllers
                         Email = user.Email,
                         Password = user.Password,
                         FirstName = user.FirstName,
-                        LastName = user.LastName
+                        LastName = user.LastName,
+                        UserType = user.UserType
                     };
                     await userRepository.CreateSync(createdUser);
                     return createdUser;

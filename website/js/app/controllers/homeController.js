@@ -1,12 +1,9 @@
-﻿angular.module('mcareApp').controller('HomeController', ['$scope', '$http', function ($scope, $http) {
+﻿angular.module('mcareApp').controller('HomeController', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
 
-    $scope.Categories = [];
+    SessionService.CheckSession();
 
-    $http.get(appGlobalSettings.apiBaseUrl + '/category')
-    .then(function (data) {
-        $scope.Categories = data.data;
-    }, function (error) {
-    });
-
+    $('#today-calendar').fullCalendar({
+        defaultView: 'agendaDay'
+    })
 
 }]);

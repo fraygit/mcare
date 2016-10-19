@@ -21,6 +21,8 @@
 <link href="/css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="/css/colors/default.css" id="theme"  rel="stylesheet">
+<link href="/plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet" />
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -276,19 +278,6 @@
   <!-- Page Content -->
   <div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row bg-title">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Dashboard 2</h4>
-            </div>
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li class="active">Dashboard 2</li>
-                </ol>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
         <div ui-view="container"></div>
 
       <!-- row -->
@@ -386,12 +375,16 @@
 <script src="/js/dashboard2.js"></script>
 <!--Style Switcher -->
 <script src="/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script src="/plugins/bower_components/moment/min/moment.min.js"></script>
+<script src="/plugins/bower_components/calendar/dist/fullcalendar.min.js"></script>
+
 
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="js/app/common.js"></script>
     <script src="js/app/config.js"></script>
     <script src="js/app/app.js"></script>
-
+    <script src="js/app/services/sessionService.js"></script>
+    <script src="js/app/controllers/homeController.js"></script>
 </body>
 </html>
