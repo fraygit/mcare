@@ -26,5 +26,14 @@ mcareAppLogin.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('home.register', {
+            url: '/register',
+            views: {
+                'container@': {
+                    templateUrl: 'js/app/templates/register.html',
+                    controller: 'RegisterController'
+                }
+            }
+        })
 
 }); 
