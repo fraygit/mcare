@@ -1,8 +1,22 @@
 ﻿<link href="/plugins/bower_components/horizontal-timeline/css/horizontal-timeline.css" rel="stylesheet" />
 
+<style type="text/css">
+    .tabs-style-shape {
+        max-width : none!important;
+    }
+
+    .timeline-badge{
+        left:85%!important;
+    }
+
+    .timeline-panel{
+        width:79%!important;
+    }
+</style>
+
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="page-title">Patient Profile</h4>
+        <h4 class="page-title">Profile</h4>
     </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
@@ -43,7 +57,7 @@
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Date of birth</strong> <br>
-                                <p class="text-muted">Feb 2, 1980</p>
+                                <p class="text-muted">2 Feb 1980</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Gender</strong> <br>
@@ -56,6 +70,10 @@
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Marital Status</strong> <br>
                                 <p class="text-muted">Married</p>
+                            </div>
+                            <div class="col-md-3 col-xs-6 b-r">
+                                <strong>Pregnacy Status</strong> <br>
+                                <p class="text-muted">Active</p>
                             </div>
                         </div>
                     </div>
@@ -99,55 +117,152 @@
                         &nbsp;
                     </div>
                 </div>
-                
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="ti-home"></i></span><span class="hidden-xs"> Home</span></a></li>
-                    <li role="presentation" class=""><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-user"></i></span> <span class="hidden-xs">Profile</span></a></li>
-                    <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-email"></i></span> <span class="hidden-xs">Messages</span></a></li>
-                    <li role="presentation" class=""><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-settings"></i></span> <span class="hidden-xs">Settings</span></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="home">
-                        <div class="col-md-6">
-                            <h3>Best Clean Tab ever</h3>
-                            <h4>you can use it with the small code</h4>
+
+                <!--<div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Progress
+                                <div class="pull-right"><a data-perform="panel-collapse"><i class="ti-minus"></i></a> <a data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>
+                            </div>
+                            <div class="panel-wrapper collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-5 pull-right">
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="profile">
-                        <div class="col-md-6">
-                            <h3>Lets check profile</h3>
-                            <h4>you can use it with the small code</h4>
+                </div>-->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sttabs tabs-style-shape">
+                            <nav>
+                                <ul>
+                                    <li class="tab-current">
+                                        <a id="section-shape-tab-0">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Overview</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-1">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Current Pregnancy</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-2">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Prenatal Visits</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-3">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Results</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-4">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Birth Plan</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-5">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Medical History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="section-shape-tab-6">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Gynecological History</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="content-wrap">
+                                <section id="section-shape-0" class="content-current">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-wrapper collapse in">
+                                                        <div class="panel-body">
+                                                            <canvas id="chtWeight" width="400" height="225"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-wrapper collapse in">
+                                                        <div class="panel-body">
+                                                            <canvas id="chtBP" width="400" height="225"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="panel panel-default">
+                                                <div class="panel-wrapper collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="col-lg-2"><p><small class="text-muted"><i class="fa fa-clock-o"></i> 3 Aug 2016</small> </p></div>
+                                                        <div class="col-lg-10"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p></div>
+                                                        <div class="col-lg-2"><p><small class="text-muted"><i class="fa fa-clock-o"></i> 3 Jul 2016</small> </p></div>
+                                                        <div class="col-lg-10"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--<div class="row">
+                                            <button type="button" class="btn btn-primary pull-right">Add new note</button>
+                                            <div class="white-box">
+                                                <ul class="timeline">
+                                                    <li>
+                                                        <div class="timeline-badge info"><i class="fa fa-file-text-o"></i> </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Genelia</h4>
+                                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 3 Aug 2016</small> </p>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-badge info"><i class="fa fa-file-text-o"></i> </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2 Jun 2016</small> </p>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>-->
+                                    </section>
+                                    <section id="section-shape-1"><h2>Tabbing 2</h2></section>
+                                    <section id="section-shape-2"><h2>Tabbing 3</h2></section>
+                                    <section id="section-shape-3"><h2>Tabbing 4</h2></section>
+                                    <section id="section-shape-4"><h2>Tabbing 5</h2></section>
+                                    <section id="section-shape-5"><h2>Tabbing 5</h2></section>
+                                    <section id="section-shape-6"><h2>Tabbing 5</h2></section>
+                            </div><!-- /content -->
                         </div>
-                        <div class="col-md-5 pull-right">
-                            <p>Vulputate eget, arcu, fringilla vel, aliquet nec, daf adfd vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="messages">
-                        <div class="col-md-6">
-                            <h3>Come on you have a lot message</h3>
-                            <h4>you can use it with the small code</h4>
-                        </div>
-                        <div class="col-md-5 pull-right">
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="settings">
-                        <div class="col-md-6">
-                            <h3>Just do Settings</h3>
-                            <h4>you can use it with the small code</h4>
-                        </div>
-                        <div class="col-md-5 pull-right">
-                            <p>Vulputate eget, fringilla vel, aliquet nec, daf adfd vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
