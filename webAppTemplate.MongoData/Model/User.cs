@@ -1,4 +1,5 @@
 ﻿using mcare.MongoData.Entities.Base;
+using System;
 
 namespace mcare.MongoData.Model
 {
@@ -9,5 +10,6 @@ namespace mcare.MongoData.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserType { get; set; }
+        public DateTime LastLogon { get; set; }
     }
 }
