@@ -9,7 +9,12 @@
                 JSON.stringify($scope.LoginForm))
                 .then(function (data) {
                     sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken);
-                    document.location.href = "/";
+                    if (data.data.HasLogon) {
+                        document.location.href = "/";
+                    }
+                    else {
+                        document.location.href = "/#/profile";
+                    }
                 }, function (error) {
                     $scope.LoginError.Message = "Invalid username or password.";
                     $scope.LoginError.ShowError = true;

@@ -40,6 +40,16 @@ mcareApp.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('profile', {
+            url: '/profile',
+            views: {
+                'container@': {
+                    templateUrl: 'js/app/templates/profile.html',
+                    controller: 'ProfileController'
+                }
+            }
+        })
+
 });
 
 

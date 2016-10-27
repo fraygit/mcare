@@ -1,5 +1,7 @@
 ﻿angular.module('mcareApp').controller('PatientProfileController', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
 
+    SessionService.CheckSession();
+
     var data = {
         labels: [new Date(2016, 1, 1), new Date(2016, 2, 1), new Date(2016, 3, 5), new Date(2016, 4, 1), new Date(2016, 5, 1), new Date(2016, 5, 15), new Date(2016, 5, 31), new Date(2016, 6, 1), new Date(2016, 6, 14)],
         datasets: [

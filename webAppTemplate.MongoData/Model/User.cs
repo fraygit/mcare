@@ -11,5 +11,6 @@ namespace mcare.MongoData.Model
         public string LastName { get; set; }
         public string UserType { get; set; }
         public DateTime LastLogon { get; set; }
+        public bool HasLogon { get; set; }
     }
 }

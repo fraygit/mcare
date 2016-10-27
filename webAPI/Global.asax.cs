@@ -21,6 +21,7 @@ namespace mcare.API
             container.Register<IAdminUserTokenRepository, AdminUserTokenRepository>(Lifestyle.Scoped);
             container.Register<ICategoryRepository, CategoryRepository>(Lifestyle.Scoped);
             container.Register<IListingRepository, ListingRepository>(Lifestyle.Scoped);
+            container.Register<IPractitionerProfileRepository, PractitionerProfileRepository>(Lifestyle.Scoped);
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

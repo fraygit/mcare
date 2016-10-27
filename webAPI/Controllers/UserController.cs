@@ -90,7 +90,8 @@ namespace mcare.API.Controllers
                     return new ResponseLogin
                     {
                         UserDetails = existingUser,
-                        UserToken = token
+                        UserToken = token,
+                        HasLogon = existingUser.HasLogon
                     };
                 }
             }

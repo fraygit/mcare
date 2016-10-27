@@ -15,7 +15,7 @@
 <!-- vector map CSS -->
 <link href="/plugins/bower_components/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
 <link href="/plugins/bower_components/css-chart/css-chart.css" rel="stylesheet">
-
+<link href="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
 <!-- animation CSS -->
 <link href="/css/animate.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -264,8 +264,8 @@
           </ul>
         </li>-->
 
-        <li> <a href="map-google.html" class="waves-effect active"><i class="fa-fw fa fa-dashboard"></i> <span class="hide-menu">Dashboard</span></a> </li>
-           <li> <a href="map-google.html" class="waves-effect"><i class="fa-fw fa fa-user-md"></i> <span class="hide-menu">Profile</span></a> </li>
+        <li> <a href="/" class="waves-effect active"><i class="fa-fw fa fa-dashboard"></i> <span class="hide-menu">Dashboard</span></a> </li>
+           <li> <a ui-sref="profile" class="waves-effect"><i class="fa-fw fa fa-user-md"></i> <span class="hide-menu">Profile</span></a> </li>
         <li> <a href="javascript:void(0)" class="waves-effect"><i class="fa-fw fa fa-suitcase"></i> <span class="hide-menu">Account<span class="fa arrow"></span></span></a>
           <ul class="nav nav-second-level">
             <li> <a href="javascript:void(0)">Profile</a> </li>
@@ -381,6 +381,7 @@
 <script src="/plugins/bower_components/calendar/dist/fullcalendar.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -393,5 +394,6 @@
     <script src="js/app/services/sessionService.js"></script>
     <script src="js/app/controllers/homeController.js"></script>
     <script src="js/app/controllers/patientprofileController.js"></script>
+    <script src="js/app/controllers/profileController.js"></script>
 </body>
 </html>
