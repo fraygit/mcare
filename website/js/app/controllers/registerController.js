@@ -17,7 +17,8 @@
                                 JSON.stringify(login))
                                 .then(function (data) {
                                     sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken);
-                                    document.location.href = "/";
+                                    sessionStorage.setItem(appGlobalSettings.sessionUserType, data.data.UserType);
+                                    document.location.href = "/#/profile";
                                 }, function (error) {
                                     $scope.LoginError.Message = "Invalid username or password.";
                                     $scope.LoginError.ShowError = true;

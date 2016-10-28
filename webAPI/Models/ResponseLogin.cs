@@ -11,5 +11,6 @@ namespace mcare.API.Models
         public User UserDetails { get; set; }
         public UserToken UserToken { get; set; }
         public bool HasLogon { get; set; }
+        public string UserType { get; set; }
     }
 }

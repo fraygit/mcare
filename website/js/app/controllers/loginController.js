@@ -8,13 +8,9 @@
             $http.post(appGlobalSettings.apiBaseUrl + '/User',
                 JSON.stringify($scope.LoginForm))
                 .then(function (data) {
-                    sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken);
-                    if (data.data.HasLogon) {
-                        document.location.href = "/";
-                    }
-                    else {
-                        document.location.href = "/#/profile";
-                    }
+                    sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken.Token);
+                    sessionStorage.setItem(appGlobalSettings.sessionUserType, data.data.UserType);
+                    document.location.href = "/";
                 }, function (error) {
                     $scope.LoginError.Message = "Invalid username or password.";
                     $scope.LoginError.ShowError = true;

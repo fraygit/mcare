@@ -91,7 +91,8 @@ namespace mcare.API.Controllers
                     {
                         UserDetails = existingUser,
                         UserToken = token,
-                        HasLogon = existingUser.HasLogon
+                        HasLogon = existingUser.HasLogon,
+                        UserType = existingUser.UserType
                     };
                 }
             }
