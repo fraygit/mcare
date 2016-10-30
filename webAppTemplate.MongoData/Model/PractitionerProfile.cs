@@ -14,5 +14,10 @@ namespace mcare.MongoData.Model
         public DateTime DateOfBirth { get; set; }
         public string Ethnicity { get; set; }
         public string RegistrationNumber { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string PostCode { get; set; }
+        public string PractitionerType { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using mcare.API.Models;
 using mcare.MongoData.Interface;
 using mcare.MongoData.Model;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,7 +86,7 @@ namespace mcare.API.Controllers
                     var practitionerProfile = await practitionerProfileRepository.GetByUser(user.Email);
                     return new ResponseUserAndPractitionerProfile
                     {
-                        PactitionerProfile = practitionerProfile,
+                        PractitionerProfile = practitionerProfile,
                         User = user
                     };
                 }
@@ -111,7 +112,7 @@ namespace mcare.API.Controllers
         /// <returns></returns>
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPost]
-        public async Task<PractitionerProfile> Update(string token, PractitionerProfile practitionerProfile)
+        public async Task<RequestUpdateUserAndPractitionerProfile> Update(string token, RequestUpdateUserAndPractitionerProfile userAndPractitionerProfile)
         {
             if (await userTokenRepository.IsTokenValid(token))
             {
@@ -124,13 +125,24 @@ namespace mcare.API.Controllers
                         var updatePractitionerProfile = new PractitionerProfile
                         {
                             Email = user.Email,
-                            DateOfBirth = practitionerProfile.DateOfBirth,
-                            Ethnicity = practitionerProfile.Ethnicity,
-                            Gender = practitionerProfile.Gender,
-                            RegistrationNumber = practitionerProfile.RegistrationNumber
+                            DateOfBirth = userAndPractitionerProfile.PractitionerProfile.DateOfBirth,
+                            Ethnicity = userAndPractitionerProfile.PractitionerProfile.Ethnicity,
+                            Gender = userAndPractitionerProfile.PractitionerProfile.Gender,
+                            RegistrationNumber = userAndPractitionerProfile.PractitionerProfile.RegistrationNumber,
+                            Address = userAndPractitionerProfile.PractitionerProfile.Address,
+                            PractitionerType = userAndPractitionerProfile.PractitionerProfile.PractitionerType
                         };
-                        await practitionerProfileRepository.Update(updatePractitionerProfile.Id.ToString(), updatePractitionerProfile);
-                        return updatePractitionerProfile;
+                        await practitionerProfileRepository.Update(userAndPractitionerProfile.PractitionerProfileId, updatePractitionerProfile);
+
+                        var updateUser = new User
+                        {
+                            FirstName = userAndPractitionerProfile.User.FirstName,
+                            LastName = userAndPractitionerProfile.User.LastName,
+                            Email = userAndPractitionerProfile.User.Email,
+                            Password = userAndPractitionerProfile.User.Password
+                        };
+                        await userRepository.Update(userAndPractitionerProfile.UserId, updateUser);
+                        return userAndPractitionerProfile;
                     }
                     catch (Exception ex)
                     {

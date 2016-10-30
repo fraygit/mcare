@@ -16,7 +16,7 @@
                             $http.post(appGlobalSettings.apiBaseUrl + '/User',
                                 JSON.stringify(login))
                                 .then(function (data) {
-                                    sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken);
+                                    sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken.Token);
                                     sessionStorage.setItem(appGlobalSettings.sessionUserType, data.data.UserType);
                                     document.location.href = "/#/profile";
                                 }, function (error) {

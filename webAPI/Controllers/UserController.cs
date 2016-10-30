@@ -1,4 +1,5 @@
-﻿using mcare.API.Models;
+﻿using mcare.API.Common;
+using mcare.API.Models;
 using mcare.MongoData.Common;
 using mcare.MongoData.Interface;
 using mcare.MongoData.Model;
@@ -17,11 +18,13 @@ namespace mcare.API.Controllers
     {
         private readonly IUserRepository userRepository;
         private readonly IUserTokenRepository userTokenRepository;
+        private readonly IPractitionerProfileRepository practitionerProfileRepository;
 
-        public UserController(IUserRepository userRepository, IUserTokenRepository userTokenRepository)
+        public UserController(IUserRepository userRepository, IUserTokenRepository userTokenRepository, IPractitionerProfileRepository practitionerProfileRepository)
         {
             this.userRepository = userRepository;
             this.userTokenRepository = userTokenRepository;
+            this.practitionerProfileRepository = practitionerProfileRepository;
         }
 
         /// <summary>
@@ -47,6 +50,15 @@ namespace mcare.API.Controllers
                         UserType = user.UserType
                     };
                     await userRepository.CreateSync(createdUser);
+
+                    if (createdUser.UserType == "practitioner")
+                    {
+                        await practitionerProfileRepository.CreateSync(new PractitionerProfile
+                        {
+                            Email = user.Email
+                        });
+                    }
+
                     return createdUser;
                 }
                 catch (Exception ex)

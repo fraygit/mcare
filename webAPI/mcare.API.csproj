@@ -144,6 +144,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Common\Enum.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\PractitionerProfileController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Helper\Helper.cs" />
     <Compile Include="Models\RequestCreateUser.cs" />
     <Compile Include="Models\RequestLogin.cs" />
+    <Compile Include="Models\RequestUpdateUserAndPractitionerProfile.cs" />
     <Compile Include="Models\ResponseLogin.cs" />
     <Compile Include="Models\ResponseUserAndPractitionerProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
