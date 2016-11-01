@@ -50,6 +50,16 @@ mcareApp.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('patientprofileform', {
+            url: '/patientprofileform',
+            views: {
+                'container@': {
+                    templateUrl: 'js/app/templates/patientprofileform.html',
+                    controller: 'PatientProfileFormController'
+                }
+            }
+        })
+
 });
 
 

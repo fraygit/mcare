@@ -18,7 +18,14 @@
                                 .then(function (data) {
                                     sessionStorage.setItem(appGlobalSettings.sessionTokenName, data.data.UserToken.Token);
                                     sessionStorage.setItem(appGlobalSettings.sessionUserType, data.data.UserType);
-                                    document.location.href = "/#/profile";
+                                    switch (data.data.UserType){
+                                        case 'practitioner':
+                                            document.location.href = "/#/profile";
+                                            break;
+                                        case 'patient':
+                                            document.location.href = "/#/patientprofileform";
+                                            break;
+                                    }
                                 }, function (error) {
                                     $scope.LoginError.Message = "Invalid username or password.";
                                     $scope.LoginError.ShowError = true;

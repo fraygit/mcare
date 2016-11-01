@@ -58,6 +58,8 @@
     <Compile Include="Interface\IAdminUserTokenRepository.cs" />
     <Compile Include="Interface\ICategoryRepository.cs" />
     <Compile Include="Interface\IListingRepository.cs" />
+    <Compile Include="Interface\IMaternityRepository.cs" />
+    <Compile Include="Interface\IPatientProfileRepository.cs" />
     <Compile Include="Interface\IPractitionerProfileRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Interface\IUserTokenRepository.cs" />
@@ -65,6 +67,8 @@
     <Compile Include="Model\AdminUserToken.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Listing.cs" />
+    <Compile Include="Model\Maternity.cs" />
+    <Compile Include="Model\PatientProfile.cs" />
     <Compile Include="Model\PractitionerProfile.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserCreditCard.cs" />
@@ -74,6 +78,8 @@
     <Compile Include="Repository\AdminUserTokenRepository.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ListingRepository.cs" />
+    <Compile Include="Repository\MaternityRepository.cs" />
+    <Compile Include="Repository\PatientProfileRepository.cs" />
     <Compile Include="Repository\PractitionerProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\UserTokenRepository.cs" />

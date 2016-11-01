@@ -53,6 +53,7 @@
         $http.post(appGlobalSettings.apiBaseUrl + '/PractitionerProfile?token=' + encodeURIComponent(token),
                 JSON.stringify($scope.Profile))
                 .then(function (data) {
+                    document.location.href = "/";
                 },
                 function (error) {
                     $scope.ErrorMessage = "Error encountered. " + error.statusText;

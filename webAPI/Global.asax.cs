@@ -22,6 +22,8 @@ namespace mcare.API
             container.Register<ICategoryRepository, CategoryRepository>(Lifestyle.Scoped);
             container.Register<IListingRepository, ListingRepository>(Lifestyle.Scoped);
             container.Register<IPractitionerProfileRepository, PractitionerProfileRepository>(Lifestyle.Scoped);
+            container.Register<IPatientProfileRepository, PatientProfileRepository>(Lifestyle.Scoped);
+            container.Register<IMaternityRepository, MaternityRepository>(Lifestyle.Scoped);
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

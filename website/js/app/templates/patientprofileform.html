@@ -1,0 +1,123 @@
+﻿<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Form Layout</h4>
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
+        <ol class="breadcrumb">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Forms</a></li>
+            <li class="active">Form Layout</li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Profile Details</div>
+            <div class="panel-wrapper collapse in">
+                <div class="panel-body">
+                    <form action="#">
+                        <div class="form-body">
+                            <h3 class="box-title">Person Info</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">NHI Number</label>
+                                        <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.Maternity.NHI">
+                                        <!--<span class="help-block"> This is inline help </span>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">First Name</label>
+                                        <input type="text" id="firstName" class="form-control" placeholder="John doe" ng-model="Profile.User.FirstName">
+                                        <!--<span class="help-block"> This is inline help </span>-->
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="control-label">
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" id="lastName" class="form-control" placeholder="12n" ng-model="Profile.User.LastName">
+                                        <!--<span class="help-block"> This field has error. </span>-->
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Gender</label>
+                                        <select class="form-control" ng-model="Profile.PractitionerProfile.Gender">
+                                            <option value="" disabled selected>- select -</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        <span class="help-block"> Select your gender </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Date of Birth</label>
+                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtDob" ng-model="Profile.User.DateOfBirth">
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" placeholder="Address" ng-model="Profile.PractitionerProfile.Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="box-title m-t-40">Maternity Details</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Last Normal Period</label>
+                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtLastNormalPeriod" ng-model="Profile.User.DateOfBirth">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success" ng-click="Update()"> <i class="fa fa-floppy-o"></i> Save</button>
+                            <a class="btn btn-default" ui-sref="home.index">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="welcomeModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>Greeting and Welcome to mcare!</h4>
+                <p>Please take time to fill out the profile information.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

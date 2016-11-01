@@ -19,12 +19,16 @@ namespace mcare.API.Controllers
         private readonly IUserRepository userRepository;
         private readonly IUserTokenRepository userTokenRepository;
         private readonly IPractitionerProfileRepository practitionerProfileRepository;
+        private readonly IPatientProfileRepository patientProfileRepository;
+        private readonly IMaternityRepository maternityRepository;
 
-        public UserController(IUserRepository userRepository, IUserTokenRepository userTokenRepository, IPractitionerProfileRepository practitionerProfileRepository)
+        public UserController(IUserRepository userRepository, IUserTokenRepository userTokenRepository, IPractitionerProfileRepository practitionerProfileRepository, IPatientProfileRepository patientProfileRepository, IMaternityRepository maternityRepository)
         {
             this.userRepository = userRepository;
             this.userTokenRepository = userTokenRepository;
             this.practitionerProfileRepository = practitionerProfileRepository;
+            this.patientProfileRepository = patientProfileRepository;
+            this.maternityRepository = maternityRepository;
         }
 
         /// <summary>
@@ -56,6 +60,21 @@ namespace mcare.API.Controllers
                         await practitionerProfileRepository.CreateSync(new PractitionerProfile
                         {
                             Email = user.Email
+                        });
+                    }
+
+                    if (createdUser.UserType == "patient")
+                    {
+                        await patientProfileRepository.CreateSync(new PatientProfile
+                        {
+                            Email = user.Email,
+                            DateRegistered = DateTime.Now
+                        });
+
+                        await maternityRepository.CreateSync(new Maternity
+                        {
+                            Email = user.Email,
+                            DateRegistered = DateTime.Now
                         });
                     }
 
