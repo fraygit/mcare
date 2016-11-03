@@ -74,6 +74,7 @@ namespace mcare.API.Controllers
                         await maternityRepository.CreateSync(new Maternity
                         {
                             Email = user.Email,
+                            Status = "Active",
                             DateRegistered = DateTime.Now
                         });
                     }

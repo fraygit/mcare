@@ -1,6 +1,7 @@
 ﻿using mcare.MongoData.Interface;
 using mcare.MongoData.Model;
 using mcare.MongoData.Service;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,14 @@ namespace mcare.MongoData.Repository
 {
     public class MaternityRepository : EntityService<Maternity>, IMaternityRepository
     {
+        public async Task<Maternity> GetCurrentByUser(string username)
+        {
+            var builder = Builders<Maternity>.Filter;
+            var filter = builder.Eq("Email", username) & builder.Eq("Status", "Active");
+            var maternity = await ConnectionHandler.MongoCollection.Find(filter).ToListAsync();
+            if (maternity.Any())
+                return maternity.FirstOrDefault();
+            return null;
+        }
     }
 }

@@ -10,3 +10,16 @@ function setTabClickEvent(numberOfTabs) {
         });
     }
 }
+
+function setValueDatePicker(value, el) {
+    if (value != undefined || !isBlank(value)) {
+        value = new Date(value);
+        if (value.getFullYear() != 1) {
+            $(el).datepicker("update", new Date(value));
+        }
+        else {
+            $(el).datepicker("update", "");
+        }
+    }
+    return value;
+}

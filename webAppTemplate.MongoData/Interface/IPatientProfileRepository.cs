@@ -10,6 +10,6 @@ namespace mcare.MongoData.Interface
 {
     public interface IPatientProfileRepository : IEntityService<PatientProfile>
     {
-        
+        Task<PatientProfile> GetByUser(string username);
     }
 }

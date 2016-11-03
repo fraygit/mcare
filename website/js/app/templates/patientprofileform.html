@@ -27,7 +27,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">NHI Number</label>
-                                        <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.Maternity.NHI">
+                                        <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
                                         <!--<span class="help-block"> This is inline help </span>-->
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Gender</label>
-                                        <select class="form-control" ng-model="Profile.PractitionerProfile.Gender">
+                                        <select class="form-control" ng-model="Profile.PatientProfile.Gender">
                                             <option value="" disabled selected>- select -</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
@@ -67,7 +67,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Date of Birth</label>
-                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtDob" ng-model="Profile.User.DateOfBirth">
+                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtDob" ng-model="Profile.PatientProfile.DateOfBirth">
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -77,7 +77,7 @@
                                 <div class="col-md-12 ">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Address" ng-model="Profile.PractitionerProfile.Address">
+                                        <input type="text" class="form-control" placeholder="Address" ng-model="Profile.PatientProfile.Address">
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Last Normal Period</label>
-                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtLastNormalPeriod" ng-model="Profile.User.DateOfBirth">
+                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="txtLastNormalPeriod" ng-model="Profile.Maternity.LastPeriod">
                                     </div>
                                 </div>
                             </div>

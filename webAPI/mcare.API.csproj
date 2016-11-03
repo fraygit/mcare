@@ -147,6 +147,7 @@
     <Compile Include="Common\Enum.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+    <Compile Include="Controllers\MaternityProfileController.cs" />
     <Compile Include="Controllers\PractitionerProfileController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserHasLogonController.cs" />
@@ -159,6 +160,8 @@
     <Compile Include="Helper\Helper.cs" />
     <Compile Include="Models\RequestCreateUser.cs" />
     <Compile Include="Models\RequestLogin.cs" />
+    <Compile Include="Models\RequestMaternityProfileUpdate.cs" />
+    <Compile Include="Models\ResponseMaternityProfile.cs" />
     <Compile Include="Models\RequestUpdateUserAndPractitionerProfile.cs" />
     <Compile Include="Models\ResponseLogin.cs" />
     <Compile Include="Models\ResponseUserAndPractitionerProfile.cs" />
