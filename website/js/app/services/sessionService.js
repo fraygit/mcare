@@ -6,4 +6,8 @@
         }
     }
 
+    this.MenuActive = function () {
+
+    }
+
 });

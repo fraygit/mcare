@@ -24,6 +24,7 @@
 <link href="/css/colors/default.css" id="theme"  rel="stylesheet">
 <link href="/plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet" />
 
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -242,7 +243,7 @@
       <!-- /.navbar-static-side -->
   </nav>
   <!-- Left navbar-header -->
-  <div class="navbar-default sidebar" role="navigation">
+  <div class="navbar-default sidebar" role="navigation" ng-controller="navigationController">
     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
        <ul class="nav" id="side-menu">
         <li class="sidebar-search hidden-sm hidden-md hidden-lg">
@@ -264,10 +265,12 @@
           </ul>
         </li>-->
 
-        <li> <a href="/" class="waves-effect active"><i class="fa-fw fa fa-dashboard"></i> <span class="hide-menu">Dashboard</span></a> </li>
-        <li> <a ui-sref="profile" class="waves-effect"><i class="fa-fw fa fa-user-md"></i> <span class="hide-menu">Profile</span></a> </li>
-        <li> <a ui-sref="patientprofileform" class="waves-effect"><i class="fa-fw fa fa-user"></i> <span class="hide-menu">My Profile</span></a> </li>
-        <li> <a href="javascript:void(0)" class="waves-effect"><i class="fa-fw fa fa-suitcase"></i> <span class="hide-menu">Account<span class="fa arrow"></span></span></a>
+           <li ng-show="Showdashboard"> <a ui-sref="home.index" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-dashboard"></i> <span class="hide-menu">Dashboard</span></a> </li>
+           <li ng-show="ShowMyPregnancy"> <a ui-sref="patientprofile" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-female"></i> <span class="hide-menu">My Pregnancy</span></a> </li>
+           <li ng-show="ShowPatientList"> <a ui-sref="patientlist" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-female"></i> <span class="hide-menu">Patients</span></a> </li>
+           <li ng-show="ShowPractitionerProfile"> <a ui-sref="profile" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-user-md"></i> <span class="hide-menu">Profile</span></a> </li>
+           <li ng-show="ShowMyProfile"> <a ui-sref="patientprofileform" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-user"></i> <span class="hide-menu">My Profile</span></a> </li>
+        <li> <a href="javascript:void(0)" class="waves-effect" ui-sref-active="active"><i class="fa-fw fa fa-suitcase"></i> <span class="hide-menu">Account<span class="fa arrow"></span></span></a>
           <ul class="nav nav-second-level">
             <li> <a href="javascript:void(0)">Profile</a> </li>
             <li> <a href="javascript:void(0)">Subscription</a> </li>
@@ -381,7 +384,7 @@
 <script src="/plugins/bower_components/moment/min/moment.min.js"></script>
 <script src="/plugins/bower_components/calendar/dist/fullcalendar.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
     <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 
     <script src="node_modules/angular/angular.min.js"></script>
@@ -397,5 +400,6 @@
     <script src="js/app/controllers/patientprofileController.js"></script>
     <script src="js/app/controllers/profileController.js"></script>
     <script src="js/app/controllers/patientprofileformController.js"></script>
+    <script src="js/app/controllers/patientlistController.js"></script>
 </body>
 </html>

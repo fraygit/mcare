@@ -60,8 +60,40 @@ mcareApp.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('patientlist', {
+            url: '/patientlist',
+            views: {
+                'container@': {
+                    templateUrl: 'js/app/templates/patientlist.html',
+                    controller: 'PatientListController'
+                }
+            }
+        })
+
 });
 
+
+angular.module('mcareApp').controller('navigationController', ['$scope', '$http', function ($scope, $http) {
+
+    $scope.ShowMyProfile = false;
+    $scope.ShowPractitionerProfile = false;
+    $scope.ShowPatientList = false;
+    $scope.ShowMyPregnancy = false;
+    $scope.Showdashboard = false;
+
+    switch (sessionStorage.getItem("UserType")) {
+        case "patient":
+            $scope.ShowMyProfile = true;
+            $scope.ShowMyPregnancy = true;
+            break;
+        case "practitioner":
+            $scope.ShowPractitionerProfile = true;
+            $scope.ShowPatientList = true;
+            $scope.Showdashboard = true;
+            break;
+    }
+
+}]);
 
 //mcareApp.controller('TopBarController', ['$scope', '$http', function ($scope, $http) {
 

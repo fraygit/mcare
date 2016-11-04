@@ -2,6 +2,10 @@
 
     SessionService.CheckSession();
 
+    if (sessionStorage.getItem("UserType") == 'patient') {
+        document.location.href = "#/patientprofile";
+    }
+
     $('#today-calendar').fullCalendar({
         defaultView: 'agendaDay'
     })
