@@ -69,4 +69,8 @@
         }
     });
 
+    $scope.AddPatient = function () {
+        $("#registerPatientModal").modal('show');
+    };
+
 }]);

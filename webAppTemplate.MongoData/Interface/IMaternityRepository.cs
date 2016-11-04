@@ -11,5 +11,6 @@ namespace mcare.MongoData.Interface
     public interface IMaternityRepository : IEntityService<Maternity>
     {
         Task<Maternity> GetCurrentByUser(string username);
+        Task<Maternity> GetByUser(string username);
     }
 }

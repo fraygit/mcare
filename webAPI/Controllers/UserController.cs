@@ -65,18 +65,23 @@ namespace mcare.API.Controllers
 
                     if (createdUser.UserType == "patient")
                     {
-                        await patientProfileRepository.CreateSync(new PatientProfile
+                        if (await patientProfileRepository.GetByUser(user.Email) == null)
                         {
-                            Email = user.Email,
-                            DateRegistered = DateTime.Now
-                        });
-
-                        await maternityRepository.CreateSync(new Maternity
+                            await patientProfileRepository.CreateSync(new PatientProfile
+                            {
+                                Email = user.Email,
+                                DateRegistered = DateTime.Now
+                            });
+                        }
+                        if (await maternityRepository.GetByUser(user.Email) == null)
                         {
-                            Email = user.Email,
-                            Status = "Active",
-                            DateRegistered = DateTime.Now
-                        });
+                            await maternityRepository.CreateSync(new Maternity
+                            {
+                                Email = user.Email,
+                                Status = "Active",
+                                DateRegistered = DateTime.Now
+                            });
+                        }
                     }
 
                     return createdUser;

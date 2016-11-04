@@ -21,5 +21,15 @@ namespace mcare.MongoData.Repository
                 return maternity.FirstOrDefault();
             return null;
         }
+
+        public async Task<Maternity> GetByUser(string username)
+        {
+            var builder = Builders<Maternity>.Filter;
+            var filter = builder.Eq("Email", username);
+            var maternity = await ConnectionHandler.MongoCollection.Find(filter).ToListAsync();
+            if (maternity.Any())
+                return maternity.FirstOrDefault();
+            return null;
+        }
     }
 }

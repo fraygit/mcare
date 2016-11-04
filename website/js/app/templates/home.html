@@ -46,7 +46,7 @@
         <div class="white-box">
             <h3 class="box-title">Add new patient</h3>
             <div class="text-center">
-                <button type="button" class="btn btn-info btn-circle btn-xl waves-effect"><i class="fa fa-plus"></i> </button>
+                <button type="button" class="btn btn-info btn-circle btn-xl waves-effect" ng-click="AddPatient()"><i class="fa fa-plus"></i> </button>
                 <br/>
             </div>
         </div>
@@ -117,4 +117,57 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div id="registerPatientModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>Register Patient</h4>
+                <small>Please take time to fill out the profile information. If the patient already has an account, you need to fill up the email</small>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">NHI Number</label>
+                            <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="John doe" ng-model="Profile.User.FirstName">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="control-label">
+                            <label class="control-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="12n" ng-model="Profile.User.LastName">
+                            <!--<span class="help-block"> This field has error. </span>-->
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                &nbsp;
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>

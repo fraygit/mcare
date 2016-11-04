@@ -19,5 +19,6 @@ namespace mcare.MongoData.Model
         public string Country { get; set; }
         public string PostCode { get; set; }
         public string PractitionerType { get; set; }
+        public List<string> Patients { get; set; }
     }
 }
