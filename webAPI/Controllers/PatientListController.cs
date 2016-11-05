@@ -29,9 +29,15 @@ namespace mcare.API.Controllers
             this.maternityRepository = maternityRepository;
         }
 
+        /// <summary>
+        /// Register a new patient
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="register"></param>
+        /// <returns></returns>
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [HttpPost]
-        public async Task<List<string>> Add(string token, RequestRegisterPatient register)
+        [HttpPut]
+        public async Task<List<PatientList>> Add(string token, RequestRegisterPatient register)
         {
             if (await userTokenRepository.IsTokenValid(token))
             {
@@ -39,44 +45,77 @@ namespace mcare.API.Controllers
                 var user = await userRepository.GetUser(userToken.Username);
                 if (user != null)
                 {
-                    if (await patientProfileRepository.GetByUser(register.Email) == null)
+                    try
                     {
-                        await patientProfileRepository.CreateSync(new PatientProfile
+                        if (await patientProfileRepository.GetByUser(register.Email) == null)
                         {
-                             Email = register.Email                             
-                        });
-                    }
-                    if (await maternityRepository.GetCurrentByUser(register.Email) == null)
-                    {
-                        await maternityRepository.CreateSync(new Maternity
+                            await patientProfileRepository.CreateSync(new PatientProfile
+                            {
+                                Email = register.Email,
+                                NHI = register.NHI
+                            });
+                        }
+                        if (await maternityRepository.GetCurrentByUser(register.Email) == null)
                         {
-                            Email = register.Email,
-                            Status = "Active"
-                        });
-                    }
-                    if (await userRepository.GetUser(register.Email) == null)
-                    {
-                        await userRepository.CreateSync(new User
+                            await maternityRepository.CreateSync(new Maternity
+                            {
+                                Email = register.Email,
+                                Status = "Active"
+                            });
+                        }
+                        if (await userRepository.GetUser(register.Email) == null)
                         {
-                            Email = register.Email,
-                            FirstName = register.FirstName,
-                            LastName = register.LastName,
-                            Password = Guid.NewGuid().ToString().Substring(0, 8)
-                        });
-                    }
+                            await userRepository.CreateSync(new User
+                            {
+                                Email = register.Email,
+                                FirstName = register.FirstName,
+                                LastName = register.LastName,
+                                Password = Guid.NewGuid().ToString().Substring(0, 8)
+                            });
+                        }
 
-                    var practitionerProfile = await practitionerProfileRepositry.GetByUser(user.Email);
-                    if (!practitionerProfile.Patients.Contains(register.Email))
-                    {
-                        practitionerProfile.Patients.Add(register.Email);
-                        await practitionerProfileRepositry.Update(practitionerProfile.Id.ToString(), practitionerProfile);
-                        return practitionerProfile.Patients;
+                        var practitionerProfile = await practitionerProfileRepositry.GetByUser(user.Email);
+                        var patientNotRegisteredToLMC = false;
+                        if (practitionerProfile.Patients != null)
+                        {
+                            patientNotRegisteredToLMC = practitionerProfile.Patients.Any(n => n.Email == register.Email);
+                        }
+                        if (!patientNotRegisteredToLMC)
+                        {
+                            if (practitionerProfile.Patients != null)
+                            {
+                                practitionerProfile.Patients.Add(new PatientList
+                                {
+                                    Email = register.Email,
+                                    DateRegistered = DateTime.Now
+                                });
+                            }
+                            else
+                            {
+                                practitionerProfile.Patients = new List<PatientList>();
+                                practitionerProfile.Patients.Add(new PatientList
+                                {
+                                    Email = register.Email,
+                                    DateRegistered = DateTime.Now
+                                });
+                            }
+                            await practitionerProfileRepositry.Update(practitionerProfile.Id.ToString(), practitionerProfile);
+                            return practitionerProfile.Patients;
+                        }
+                        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                        {
+                            Content = new StringContent("Patient already exist."),
+                            ReasonPhrase = "Please add a different one."
+                        });
                     }
-                    throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                    catch (Exception ex)
                     {
-                        Content = new StringContent("Patient already exist."),
-                        ReasonPhrase = "Please add a different one."
-                    });
+                        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                        {
+                            Content = new StringContent("Error occured." + ex.Message),
+                            ReasonPhrase = "Internal Server error."
+                        });
+                    }
                 }
                 throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
                 {

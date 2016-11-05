@@ -130,14 +130,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">NHI Number</label>
-                            <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
+                            <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Register.NHI">
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input type="text" id="txtNHI" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
+                            <input type="text" id="txtNHI" class="form-control" placeholder="your@email.com" ng-model="Register.Email">
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">First Name</label>
-                            <input type="text" id="firstName" class="form-control" placeholder="John doe" ng-model="Profile.User.FirstName">
+                            <input type="text" id="firstName" class="form-control" placeholder="John doe" ng-model="Register.FirstName">
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>
@@ -154,17 +154,22 @@
                     <div class="col-md-6">
                         <div class="control-label">
                             <label class="control-label">Last Name</label>
-                            <input type="text" id="lastName" class="form-control" placeholder="12n" ng-model="Profile.User.LastName">
+                            <input type="text" id="lastName" class="form-control" placeholder="Smith" ng-model="Register.LastName">
                             <!--<span class="help-block"> This field has error. </span>-->
                         </div>
                     </div>
                     <!--/span-->
                 </div>
             </div>
+            <div class="alert alert-danger alert-dismissable" ng-show="RegisterForm.ShowError">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ RegisterForm.ErrorMessage }}
+            </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
                 &nbsp;
-                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-info waves-effect" ng-click="SaveNewPatient()">Save</button>
             </div>
         </div>
         <!-- /.modal-content -->

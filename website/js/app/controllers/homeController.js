@@ -1,6 +1,10 @@
 ﻿angular.module('mcareApp').controller('HomeController', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
 
     SessionService.CheckSession();
+    var token = sessionStorage.getItem(appGlobalSettings.sessionTokenName);
+
+    $scope.Register = {};
+    $scope.RegisterForm = {ShowError: false};
 
     if (sessionStorage.getItem("UserType") == 'patient') {
         document.location.href = "#/patientprofile";
@@ -72,5 +76,25 @@
     $scope.AddPatient = function () {
         $("#registerPatientModal").modal('show');
     };
+
+    $scope.SaveNewPatient = function () {
+        $("#registerPatientModal").modal('hide');
+        if (!isBlank($scope.Register.Email)) {
+
+            $http.put(appGlobalSettings.apiBaseUrl + '/PatientList?token=' + encodeURIComponent(token),
+                    JSON.stringify($scope.Register))
+                    .then(function (data) {
+                        $("#registerPatientModal").modal('hide');
+                    },
+                    function (error) {
+                        $scope.RegisterForm.ErrorMessage = "Error encountered. " + error.statusText;
+                        $scope.RegisterForm.ShowError = true;
+                    });
+        }
+        else {
+            $scope.RegisterForm.ErrorMessage = "Please input email address.";
+            $scope.RegisterForm.ShowError = true;
+        }
+    }
 
 }]);
