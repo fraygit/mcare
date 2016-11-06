@@ -130,5 +130,69 @@ namespace mcare.API.Controllers
             });
         }
 
+
+        /// <summary>
+        /// Get practioner's patient lists
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        public async Task<List<ResponseMaternityProfile>> Get(string token)
+        {
+            if (await userTokenRepository.IsTokenValid(token))
+            {
+                var userToken = await userTokenRepository.GetUserTokenDetailByToken(token);
+                var user = await userRepository.GetUser(userToken.Username);
+                if (user != null)
+                {
+                    try
+                    {
+                        var practitionerProfile = await practitionerProfileRepositry.GetByUser(user.Email);
+                        var patientLists = new List<ResponseMaternityProfile>();
+                        foreach (var patientEmail in practitionerProfile.Patients)
+                        {
+                            var maternity = await maternityRepository.GetCurrentByUser(patientEmail.Email);
+                            if (maternity != null)
+                            {
+                                var patientProfile = await patientProfileRepository.GetByUser(patientEmail.Email);
+                                var patientUserProfile = await userRepository.GetUser(patientEmail.Email);
+                                patientLists.Add(new ResponseMaternityProfile
+                                {
+                                    Maternity = maternity,
+                                    PatientProfile = patientProfile,
+                                    User = patientUserProfile
+                                });
+                            }
+                        }
+                        return patientLists;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                        {
+                            Content = new StringContent("Error occured." + ex.Message),
+                            ReasonPhrase = "Internal Server error."
+                        });
+                    }
+                    throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                    {
+                        Content = new StringContent("Unable to find user."),
+                        ReasonPhrase = "Please login."
+                    });
+                }
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                {
+                    Content = new StringContent("Invalid token"),
+                    ReasonPhrase = "Please login."
+                });
+            }
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent("Invalid token"),
+                ReasonPhrase = "Please login."
+            });
+        }
+
     }
 }

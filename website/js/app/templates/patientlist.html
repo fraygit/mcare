@@ -16,20 +16,20 @@
 
 <div class="row el-element-overlay m-b-40">
     <!-- /.usercard -->
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="profile in PatientList">
         <div class="white-box">
             <div class="el-card-item">
                 <div class="el-card-avatar el-overlay-1">
-                    <img src="../plugins/images/users/1.jpg">
+                    <img src="/images/avatar_blank.jpg_1.png" />
                     <div class="el-overlay">
                         <ul class="el-info">
-                            <li><a class="btn default btn-outline image-popup-vertical-fit" ng-click="GoToPatientProfile()"><i class="icon-magnifier"></i></a></li>
+                            <li><a class="btn default btn-outline image-popup-vertical-fit" ng-click="GoToPatientProfile(user.Email)"><i class="icon-magnifier"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="el-card-content">
-                    <h3 class="box-title">Genelia Deshmukh</h3>
-                    <small>Managing Director</small><br>
+                    <h3 class="box-title">{{ profile.User.FirstName }} {{ profile.User.LastName }}</h3>
+                    <!--<small>Managing Director</small>--><br>
                 </div>
             </div>
         </div>
