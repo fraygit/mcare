@@ -147,6 +147,7 @@
     <Compile Include="Common\Enum.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+    <Compile Include="Controllers\MaternityController.cs" />
     <Compile Include="Controllers\MaternityProfileController.cs" />
     <Compile Include="Controllers\PatientListController.cs" />
     <Compile Include="Controllers\PractitionerProfileController.cs" />

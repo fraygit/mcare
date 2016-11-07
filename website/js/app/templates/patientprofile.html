@@ -150,7 +150,7 @@
                                         </a>
                                     </li>
                                     <li class="tabItem">
-                                        <a id="section-shape-tab-3" class="achor-tab-menu">
+                                        <a id="section-shape-tab-1" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <span>Prenatal Visits</span>
@@ -171,9 +171,30 @@
                                         </a>
                                     </li>
                                     <li class="tabItem">
+                                        <a id="section-shape-tab-5" class="achor-tab-menu">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Labor</span>
+                                        </a>
+                                    </li>
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-5" class="achor-tab-menu">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Newborn Details</span>
+                                        </a>
+                                    </li>
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-5" class="achor-tab-menu">
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
+                                            <span>Postpartum Visits</span>
+                                        </a>
+                                    </li>
+                                    <li class="tabItem">
                                         <a id="section-shape-tab-6" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <span>Gynecological History</span>
+                                            <span>Chat</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -214,7 +235,203 @@
                                             </div>
                                         </div>
                                     </section>
-                                <section id="section-shape-tab-1-content" class="tab-content-item"><h2>Tabbing 2</h2></section>
+                                <section id="section-shape-tab-1-content" class="tab-content-item">
+                                    <div class="vtabs customvtab" style="width:100%">
+                                        <ul class="nav tabs-vertical">
+                                            <li class="tab active"><a data-toggle="tab" href="#vhome3" aria-expanded="true" target="_self"> <span class="visible-xs"><i class="ti-home"></i></span> <span class="hidden-xs">Record a visit</span> </a> </li>
+                                            <li class="tab"><a data-toggle="tab" href="#vprofile3" aria-expanded="false" target="_self"> <span class="visible-xs"><i class="ti-user"></i></span> <span class="hidden-xs">Previous visits</span> </a> </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="vhome3" class="tab-pane active">
+                                                <div class="col-md-12 col-lg-12">
+                                                    <form action="#">
+                                                        <div class="form-body">
+                                                            <h3 class="box-title">Measurements</h3>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Date</label>
+                                                                        <input type="text" id="txtDate" class="form-control" placeholder="NHI" ng-model="Profile.PatientProfile.NHI">
+                                                                        <!--<span class="help-block"> This is inline help </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Week</label>
+                                                                        <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                            <option value="" selected disabled>- select -</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                            <option value="17">17</option>
+                                                                            <option value="18">18</option>
+                                                                            <option value="19">19</option>
+                                                                            <option value="20">20</option>
+                                                                            <option value="21">21</option>
+                                                                            <option value="22">22</option>
+                                                                            <option value="23">23</option>
+                                                                            <option value="24">24</option>
+                                                                            <option value="25">25</option>
+                                                                            <option value="26">26</option>
+                                                                            <option value="27">27</option>
+                                                                            <option value="28">28</option>
+                                                                            <option value="29">29</option>
+                                                                            <option value="30">30</option>
+                                                                            <option value="31">31</option>
+                                                                            <option value="32">32</option>
+                                                                            <option value="33">33</option>
+                                                                            <option value="34">34</option>
+                                                                            <option value="35">35</option>
+                                                                            <option value="36">36</option>
+                                                                            <option value="37">37</option>
+                                                                            <option value="38">38</option>
+                                                                            <option value="39">39</option>
+                                                                            <option value="40">40</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Weight</label>
+                                                                        <input type="text" class="form-control" placeholder="kg" ng-model="Profile.User.FirstName">
+                                                                        <!--<span class="help-block"> This is inline help </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Protien/Glucose</label>
+                                                                        <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                            <option value="" selected disabled>Protien</option>
+                                                                            <option value="Normal">Normal</option>
+                                                                            <option value="High">High</option>
+                                                                            <option value="Low">Low</option>
+                                                                        </select>
+                                                                        <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                            <option value="" selected disabled>Glucose</option>
+                                                                            <option value="Normal">Normal</option>
+                                                                            <option value="High">High</option>
+                                                                            <option value="Low">Low</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Blood Pressure</label>
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <!--<span class="help-block"> This field has error. </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Pulse</label>
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <!--<span class="help-block"> This field has error. </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Fundal Height</label>
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <!--<span class="help-block"> This field has error. </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">FHT</label>
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <!--<span class="help-block"> This field has error. </span>-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--/span-->
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Fetal Position</label>
+                                                                        <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                            <option value="" selected disabled>- select -</option>
+                                                                            <option value="LOA">LOA</option>
+                                                                            <option value="LOT">LOT</option>
+                                                                            <option value="LOP">LOP</option>
+                                                                            <option value="LOP">ROA</option>
+                                                                            <option value="ROT">ROT</option>
+                                                                            <option value="ROP">ROP</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="control-label">
+                                                                        <label class="control-label">Edema</label>
+                                                                        <input type="text" id="lastName" class="form-control" placeholder="" ng-model="Profile.User.LastName">
+                                                                        <!--<span class="help-block"> This field has error. </span>-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label class="control-label">Notes</label>
+                                                                    <textarea rows="5" class="form-control"></textarea>
+                                                                    <!--<span class="help-block"> This field has error. </span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <button type="submit" class="btn btn-success">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                        <div class="clearfix"></div>
+                                                </div>
+                                            <div id="vprofile3" class="tab-pane">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td><a href="">20 Mar 2016</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td><a href="">07 Feb 2016</a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>                                            
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </section>
                                 <section id="section-shape-tab-2-content" class="tab-content-item"><h2>Tabbing 3</h2></section>
                                 <section id="section-shape-tab-3-content" class="tab-content-item"><h2>Tabbing 4</h2></section>
                                 <section id="section-shape-tab-4-content" class="tab-content-item"><h2>Tabbing 5</h2></section>
