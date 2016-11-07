@@ -1,6 +1,9 @@
 ﻿angular.module('mcareApp').controller('PatientProfileController', ['$scope', '$http', 'SessionService', function ($scope, $http, SessionService) {
 
     SessionService.CheckSession();
+    var token = sessionStorage.getItem(appGlobalSettings.sessionTokenName);
+
+    $scope.PatientProfile = {};
 
     var data = {
         labels: [new Date(2016, 1, 1), new Date(2016, 2, 1), new Date(2016, 3, 5), new Date(2016, 4, 1), new Date(2016, 5, 1), new Date(2016, 5, 15), new Date(2016, 5, 31), new Date(2016, 6, 1), new Date(2016, 6, 14)],
@@ -85,10 +88,45 @@
     });
 
 
-    $('#tab2').click(function (e) {
+    $('#section-shape-tab-3').click(function (e) {
         jQuery(e).tab('show');
         e.preventDefault();
     });
+
+    $(".achor-tab-menu").each(function (index, item) {
+        $(item).click(function (e) {
+            var tabName = $(e.target.parentElement).attr("id")
+
+            $(".tabItem").each(function (inx, i) {
+                $(i).removeClass("tab-current");
+            });
+            $(".tab-content-item").each(function (inx, i) {
+                $(i).removeClass("content-current");
+            });
+
+            $($("#" + $(e.target.parentElement).attr("id")).parent()).addClass("tab-current");
+            
+            $("#" + tabName + "-content").addClass("content-current");
+
+            e.preventDefault();
+        });
+    });
+
+    // Retrieve Profile
+    var patientEmail = sessionStorage.getItem("currentPatientEmail");
+    if (!isBlank(patientEmail)) {
+        $http.put(appGlobalSettings.apiBaseUrl + '/MaternityProfile?token=' + encodeURIComponent(token) + '&email=' + encodeURIComponent(patientEmail))
+                .then(function (data) {
+                    $scope.PatientProfile = data.data;
+                },
+                function (error) {
+                    $scope.ErrorMessage = "Error encountered. " + error.statusText;
+                    $("#ErrorMessage").slideDown('slow');
+                });
+    }
+    else {
+        document.location.href = "#/patientlist";
+    }
 
 
 }]);

@@ -39,37 +39,39 @@
 
                 <div class="row">
                     <div class="col-lg-2">
-                        <a href="javascript:void(0)"><img src="/plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
+                        <a href="javascript:void(0)">
+                            <img src="/images/avatar_blank.jpg_1.png" class="thumb-lg img-circle" alt="img" />
+                        </a>
                     </div>
                     <div class="col-lg-10">
                         <div class="row">
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>NHI</strong> <br>
-                                <p class="text-muted">JQ12345</p>
+                                <p class="text-muted">{{ PatientProfile.PatientProfile.NHI }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Last Name</strong> <br>
-                                <p class="text-muted">Dela Cruz</p>
+                                <p class="text-muted">{{ PatientProfile.User.LastName }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>First Name</strong> <br>
-                                <p class="text-muted">Juan Pedro</p>
+                                <p class="text-muted">{{ PatientProfile.User.FirstName }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Date of birth</strong> <br>
-                                <p class="text-muted">2 Feb 1980</p>
+                                <p class="text-muted">{{ PatientProfile.PatientProfile.DateOfBirth | date: 'd MMM yyyy' }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Gender</strong> <br>
-                                <p class="text-muted">Male</p>
+                                <p class="text-muted">{{ PatientProfile.PatientProfile.Gender }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
-                                <strong>Enthicity</strong> <br>
-                                <p class="text-muted">Asian</p>
+                                <strong>Ethnicity</strong> <br>
+                                <p class="text-muted">{{ PatientProfile.PatientProfile.Ethnicity }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Marital Status</strong> <br>
-                                <p class="text-muted">Married</p>
+                                <p class="text-muted">{{ PatientProfile.PatientProfile.MaritalStatus }}</p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r">
                                 <strong>Pregnacy Status</strong> <br>
@@ -79,7 +81,9 @@
                     </div>
                 </div>
 
-                <div class="row">
+
+
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <div class="cd-horizontal-timeline loaded" style="margin:0;">
                             <div class="timeline">
@@ -100,17 +104,17 @@
                                         </ol>
 
                                         <span class="filling-line" aria-hidden="true" style="transform: scaleX(0.0776953);"></span>
-                                    </div> <!-- .events -->
-                                </div> <!-- .events-wrapper -->
+                                    </div>
+                                </div> 
 
                                 <ul class="cd-timeline-navigation">
                                     <li><a href="#0" class="prev inactive">Prev</a></li>
                                     <li><a href="#0" class="next">Next</a></li>
-                                </ul> <!-- .cd-timeline-navigation -->
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row">
                     <div class="col-lg-2">
@@ -139,49 +143,35 @@
                         <div class="sttabs tabs-style-shape">
                             <nav>
                                 <ul>
-                                    <li class="tab-current">
-                                        <a id="section-shape-tab-0">
+                                    <li class="tab-current tabItem">
+                                        <a id="section-shape-tab-0" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <span>Overview</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a id="section-shape-tab-1">
-                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <span>Current Pregnancy</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a id="section-shape-tab-2">
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-3" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <span>Prenatal Visits</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a id="section-shape-tab-3">
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-4" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <span>Results</span>
+                                            <span>Lab Tests</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a id="section-shape-tab-4">
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-5" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <span>Birth Plan</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a id="section-shape-tab-5">
-                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
-                                            <span>Medical History</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a id="section-shape-tab-6">
+                                    <li class="tabItem">
+                                        <a id="section-shape-tab-6" class="achor-tab-menu">
                                             <svg viewBox="0 0 80 60" preserveAspectRatio="none"><path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"></path></svg>
                                             <span>Gynecological History</span>
                                         </a>
@@ -189,7 +179,7 @@
                                 </ul>
                             </nav>
                             <div class="content-wrap">
-                                <section id="section-shape-0" class="content-current">
+                                <section id="section-shape-tab-0-content" class="content-current tab-content-item">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="panel panel-default">
@@ -223,44 +213,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--<div class="row">
-                                            <button type="button" class="btn btn-primary pull-right">Add new note</button>
-                                            <div class="white-box">
-                                                <ul class="timeline">
-                                                    <li>
-                                                        <div class="timeline-badge info"><i class="fa fa-file-text-o"></i> </div>
-                                                        <div class="timeline-panel">
-                                                            <div class="timeline-heading">
-                                                                <h4 class="timeline-title">Genelia</h4>
-                                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 3 Aug 2016</small> </p>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-badge info"><i class="fa fa-file-text-o"></i> </div>
-                                                        <div class="timeline-panel">
-                                                            <div class="timeline-heading">
-                                                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2 Jun 2016</small> </p>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>-->
                                     </section>
-                                    <section id="section-shape-1"><h2>Tabbing 2</h2></section>
-                                    <section id="section-shape-2"><h2>Tabbing 3</h2></section>
-                                    <section id="section-shape-3"><h2>Tabbing 4</h2></section>
-                                    <section id="section-shape-4"><h2>Tabbing 5</h2></section>
-                                    <section id="section-shape-5"><h2>Tabbing 5</h2></section>
-                                    <section id="section-shape-6"><h2>Tabbing 5</h2></section>
+                                <section id="section-shape-tab-1-content" class="tab-content-item"><h2>Tabbing 2</h2></section>
+                                <section id="section-shape-tab-2-content" class="tab-content-item"><h2>Tabbing 3</h2></section>
+                                <section id="section-shape-tab-3-content" class="tab-content-item"><h2>Tabbing 4</h2></section>
+                                <section id="section-shape-tab-4-content" class="tab-content-item"><h2>Tabbing 5</h2></section>
+                                <section id="section-shape-tab-5-content" class="tab-content-item"><h2>Tabbing 5</h2></section>
                             </div><!-- /content -->
                         </div>
                     </div>

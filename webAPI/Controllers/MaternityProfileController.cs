@@ -74,6 +74,12 @@ namespace mcare.API.Controllers
             });
         }
 
+
+        /// <summary>
+        /// Get patient profile by token
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
         public async Task<ResponseMaternityProfile> Get(string token)
@@ -86,6 +92,44 @@ namespace mcare.API.Controllers
                 {
                     var patientProfile = await patientProfileRepository.GetByUser(user.Email);
                     var maternity = await maternityRepository.GetCurrentByUser(user.Email);
+
+                    return new ResponseMaternityProfile
+                    {
+                        PatientProfile = patientProfile,
+                        User = user,
+                        Maternity = maternity
+                    };
+                }
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                {
+                    Content = new StringContent("Unable to find user."),
+                    ReasonPhrase = "Please login."
+                });
+            }
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent("Invalid token"),
+                ReasonPhrase = "Please login."
+            });
+        }
+
+        /// <summary>
+        /// Get patient profile by Email
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpPut]
+        public async Task<ResponseMaternityProfile> Get(string token, string email)
+        {
+            if (await userTokenRepository.IsTokenValid(token))
+            {
+                var userToken = await userTokenRepository.GetUserTokenDetailByToken(token);
+                var user = await userRepository.GetUser(email);
+                if (user != null)
+                {
+                    var patientProfile = await patientProfileRepository.GetByUser(email);
+                    var maternity = await maternityRepository.GetCurrentByUser(email);
 
                     return new ResponseMaternityProfile
                     {

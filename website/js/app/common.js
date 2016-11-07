@@ -23,3 +23,4 @@ function setValueDatePicker(value, el) {
     }
     return value;
 }
+

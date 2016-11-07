@@ -4,7 +4,7 @@
     var token = sessionStorage.getItem(appGlobalSettings.sessionTokenName);
 
     $scope.GoToPatientProfile = function (email) {
-        console.log('email:' + email);
+        sessionStorage.setItem("currentPatientEmail", email);
         document.location.href = "#/patientprofile";
     };
 

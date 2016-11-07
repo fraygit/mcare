@@ -17,6 +17,9 @@ namespace mcare.MongoData.Model
         public string Country { get; set; }
         public string MobileNumber { get; set; }
         public string HomeNumber { get; set; }
+        public string Ethnicity { get; set; }
+        public string MaritalStatus { get; set; }
+        public DateTime DateUpdated { get; set; }
         public DateTime DateRegistered { get; set; }
     }
 }
