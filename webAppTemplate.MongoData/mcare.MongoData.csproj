@@ -61,6 +61,7 @@
     <Compile Include="Interface\IMaternityRepository.cs" />
     <Compile Include="Interface\IPatientProfileRepository.cs" />
     <Compile Include="Interface\IPractitionerProfileRepository.cs" />
+    <Compile Include="Interface\ISubscribersRepository.cs" />
     <Compile Include="Interface\IUserRepository.cs" />
     <Compile Include="Interface\IUserTokenRepository.cs" />
     <Compile Include="Model\AdminUser.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Model\Maternity.cs" />
     <Compile Include="Model\PatientProfile.cs" />
     <Compile Include="Model\PractitionerProfile.cs" />
+    <Compile Include="Model\Subscribers.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserCreditCard.cs" />
     <Compile Include="Model\UserToken.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Repository\MaternityRepository.cs" />
     <Compile Include="Repository\PatientProfileRepository.cs" />
     <Compile Include="Repository\PractitionerProfileRepository.cs" />
+    <Compile Include="Repository\SubscribersRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\UserTokenRepository.cs" />
     <Compile Include="Service\ConnectionHandler.cs" />

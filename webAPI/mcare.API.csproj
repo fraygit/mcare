@@ -151,6 +151,7 @@
     <Compile Include="Controllers\MaternityProfileController.cs" />
     <Compile Include="Controllers\PatientListController.cs" />
     <Compile Include="Controllers\PractitionerProfileController.cs" />
+    <Compile Include="Controllers\SubscriberController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserHasLogonController.cs" />
     <Compile Include="Custom\AuthenticationFailureResult.cs" />
