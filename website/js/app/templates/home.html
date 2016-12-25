@@ -2,12 +2,12 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <h4 class="page-title">Lead Maternity Care Dashboard</h4>
     </div>
-    <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
+    <!--<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
         <ol class="breadcrumb">
             <li><a href="index.html">Dashboard</a></li>
             <li class="active">Dashboard 2</li>
         </ol>
-    </div>
+    </div>-->
     <!-- /.col-lg-12 -->
 </div>
 
@@ -86,7 +86,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Calendar
-                <button class="btn btn-primary waves-effect pull-right">Add new appointment</button>
+                <button class="btn btn-primary waves-effect pull-right" ng-click="AddAppointment()">Add new appointment</button>
             </div>
             <div class="panel-wrapper collapse in">
                 <div class="panel-body">
@@ -159,6 +159,89 @@
                         </div>
                     </div>
                     <!--/span-->
+                </div>
+            </div>
+            <div class="alert alert-danger alert-dismissable" ng-show="RegisterForm.ShowError">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{ RegisterForm.ErrorMessage }}
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                &nbsp;
+                <button type="button" class="btn btn-info waves-effect" ng-click="SaveNewPatient()">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div id="modalAddAppointment" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Add new appointment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">From</label>
+                            <input type="text" id="txtFromDate" class="form-control" placeholder="Date" ng-model="NewAppointment.FromDate">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">&nbsp;</label>
+                            <input type="text" id="txtNHI" class="form-control" placeholder="Time" ng-model="NewAppointment.FromTime">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">To</label>
+                            <input type="text" id="txtToDate" class="form-control" placeholder="Date" ng-model="NewAppointment.ToDate">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-3">
+                        <div class="control-label">
+                            <label class="control-label">&nbsp;</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Time" ng-model="NewAppointment.ToTime">
+                            <!--<span class="help-block"> This field has error. </span>-->
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Location</label>
+                            <input type="text" class="form-control" placeholder="Where" ng-model="NewAppointment.Location">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Who</label>
+                            <div class="input-group  m-t-10">
+                                <select class="form-control" ng-model="NewAppointment.Who">
+                                    <option value="-1" disabled selected>Client</option>
+                                    <option ng-repeat="profile in PatientList" value="{{ profile.User.Email }}">{{ profile.User.FirstName }} {{ profile.User.LastName }}</option>
+                                </select>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn waves-effect waves-light btn-info">Add</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="alert alert-danger alert-dismissable" ng-show="RegisterForm.ShowError">

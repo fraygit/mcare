@@ -4,7 +4,9 @@
     var token = sessionStorage.getItem(appGlobalSettings.sessionTokenName);
 
     $scope.Register = {};
-    $scope.RegisterForm = {ShowError: false};
+    $scope.RegisterForm = { ShowError: false };
+
+    $scope.NewAppointment = { Who: -1 };
 
     if (sessionStorage.getItem("UserType") == 'patient') {
         document.location.href = "#/patientprofile";
@@ -95,6 +97,23 @@
             $scope.RegisterForm.ErrorMessage = "Please input email address.";
             $scope.RegisterForm.ShowError = true;
         }
-    }
+    };
+
+    /*********************************************************************/
+
+
+    $scope.PatientList = [];
+    $http.get(appGlobalSettings.apiBaseUrl + '/PatientList?token=' + encodeURIComponent(token))
+            .then(function (data) {
+                $scope.PatientList = data.data;
+            },
+            function (error) {
+            });
+
+
+    $scope.AddAppointment = function () {
+        $("#modalAddAppointment").modal('show');
+    };
+
 
 }]);
