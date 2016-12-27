@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 using MongoDB.Bson;
@@ -19,6 +20,7 @@ namespace mcare.MongoData.Service
 
 	    public virtual void Create(T entity)
         {
+            entity.DateCreated = DateTime.Now;
             var result = ConnectionHandler.MongoCollection.InsertOneAsync(entity);
         }
 
@@ -55,6 +57,7 @@ namespace mcare.MongoData.Service
 
         public virtual async Task<bool> CreateSync(T entity)
         {
+            entity.DateCreated = DateTime.Now;
             await ConnectionHandler.MongoCollection.InsertOneAsync(entity);
             return true;
         }

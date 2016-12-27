@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-lg-3 col-sm-3 col-xs-12">
         <div class="white-box bg-success">
-            <h3 class="box-title text-white">1st Trimester</h3>
+            <h3 class="box-title text-white counter">1st Trimester</h3>
             <ul class="list-inline two-part">
                 <li><i class="icon-people text-white"></i></li>
                 <li class="text-right"><span class="counter text-white">23</span></li>
@@ -221,8 +221,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label">Location</label>
+                            <label class="control-label">Where</label>
                             <input type="text" class="form-control" placeholder="Where" ng-model="NewAppointment.Location">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">What</label>
+                            <textarea class="form-control" rows="3"></textarea>
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>
@@ -232,13 +241,19 @@
                         <div class="form-group">
                             <label class="control-label">Who</label>
                             <div class="input-group  m-t-10">
-                                <select class="form-control" ng-model="NewAppointment.Who">
-                                    <option value="-1" disabled selected>Client</option>
+                                <select class="form-control" ng-model="SelectAttendee" id="ddAttendee">
+                                    <option value="-1">Client</option>
                                     <option ng-repeat="profile in PatientList" value="{{ profile.User.Email }}">{{ profile.User.FirstName }} {{ profile.User.LastName }}</option>
                                 </select>
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn waves-effect waves-light btn-info">Add</button>
+                                    <button type="button" class="btn waves-effect waves-light btn-info" ng-click="AddAttendee()">Add</button>
                                 </span>
+                            </div>
+
+                            <div style="padding-bottom:8px;padding-top:8px;" ng-repeat="attendee in Attendees">
+                                <span class="label label-rounded label-success">{{ attendee.Name }}</span>
+                                <a href="javacript:void(0)" class="action"><i class="ti-close text-danger"></i></a>
+                                <a href="javacript:void(0)" class="action"><i class="ti-check text-success"></i></a>
                             </div>
                         </div>
                     </div>

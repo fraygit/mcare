@@ -8,6 +8,10 @@
 
     $scope.NewAppointment = { Who: -1 };
 
+    $scope.SelectAttendee;
+    $scope.Attendees = [];
+    $scope.DisplayAttendeeList = [];
+
     if (sessionStorage.getItem("UserType") == 'patient') {
         document.location.href = "#/patientprofile";
     }
@@ -113,6 +117,15 @@
 
     $scope.AddAppointment = function () {
         $("#modalAddAppointment").modal('show');
+    };
+
+    $scope.AddAttendee = function () {
+        if (!isBlank($scope.SelectAttendee)) {
+            $scope.Attendees.push({
+                Name: $("#ddAttendee option[value='" + $scope.SelectAttendee + "']").text(),
+                Email: $scope.SelectAttendee
+            });
+        }
     };
 
 
