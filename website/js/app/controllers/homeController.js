@@ -12,6 +12,12 @@
     $scope.Attendees = [];
     $scope.DisplayAttendeeList = [];
 
+    $scope.Dob = $("#txtFromDate").datepicker({ format: 'dd/mm/yyyy', });
+    $('.clockpicker').clockpicker({
+        donetext: 'Done',
+        autoclose: true
+    });
+
     if (sessionStorage.getItem("UserType") == 'patient') {
         document.location.href = "#/patientprofile";
     }
@@ -126,6 +132,10 @@
                 Email: $scope.SelectAttendee
             });
         }
+    };
+
+    $scope.SaveAppointment = function () {
+        var datetimeFrom = moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm")._d
     };
 
 
