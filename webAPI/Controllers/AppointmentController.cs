@@ -25,6 +25,43 @@ namespace mcare.API.Controllers
         }
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        public async Task<List<Appointment>> Get(string token)
+        {
+            if (await userTokenRepository.IsTokenValid(token))
+            {
+                var userToken = await userTokenRepository.GetUserTokenDetailByToken(token);
+                var user = await userRepository.GetUser(userToken.Username);
+                if (user != null)
+                {
+                    try
+                    {
+                        var appointments = await appointmentRepository.GetByUser(user.Email);
+                        return appointments;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                        {
+                            Content = new StringContent("Error executing. " + ex.Message),
+                            ReasonPhrase = "Call your administrator."
+                        });
+                    }
+                }
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+                {
+                    Content = new StringContent("Unable to find user."),
+                    ReasonPhrase = "Please login."
+                });
+            }
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent("Invalid token"),
+                ReasonPhrase = "Please login."
+            });
+        }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPut]
         public async Task<Appointment> Add(string token, Appointment appointment)
         {

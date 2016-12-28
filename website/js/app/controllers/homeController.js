@@ -24,10 +24,6 @@
         document.location.href = "#/patientprofile";
     }
 
-    $('#today-calendar').fullCalendar({
-        defaultView: 'agendaDay'
-    })
-
     var data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
@@ -162,7 +158,8 @@
                                 $http.put(appGlobalSettings.apiBaseUrl + '/Appointment?token=' + encodeURIComponent(token),
                                         JSON.stringify(requestNewAppointment))
                                         .then(function (data) {
-                                            $("#registerPatientModal").modal('hide');
+                                            $("#modalAddAppointment").modal('hide');
+                                            $('#today-calendar').fullCalendar('refetchEvents');
                                         },
                                         function (error) {
                                             $("#pnlAddAppointmentError").slideDown('slow');
@@ -222,5 +219,36 @@
         }
     };
 
+    var LoadAppointments = function (cb) {
+        $http.get(appGlobalSettings.apiBaseUrl + '/Appointment?token=' + encodeURIComponent(token))
+                .then(function (data) {
+                    var appointments = data.data;
+                    var events = [];
+                    $.each(appointments, function (appointmentIndex, appointmentItem) {
+                        events.push({
+                            title: appointmentItem.Title,
+                            start: appointmentItem.DateFrom,
+                            end: appointmentItem.DateTo
+                        });
+                    });
+                    cb(events);
+                },
+                function (error) {
+                    $scope.ErrorMessage = "Error encountered. " + error.statusText;
+                    $("#ErrorMessage").slideDown('slow');
+                });
+    }
 
+    var ReloadCalendar = function () {
+        LoadAppointments(function (appointments) {
+            $('#today-calendar').fullCalendar({
+                events: appointments,
+                timezone: "local",
+                defaultView: 'agendaDay'
+            })
+        });
+    };
+
+    ReloadCalendar();
+    
 }]);

@@ -10,5 +10,6 @@ namespace mcare.MongoData.Interface
 {
     public interface IAppointmentRepository : IEntityService<Appointment>
     {
+        Task<List<Appointment>> GetByUser(string username);
     }
 }
