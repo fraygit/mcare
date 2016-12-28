@@ -159,7 +159,7 @@
                                         JSON.stringify(requestNewAppointment))
                                         .then(function (data) {
                                             $("#modalAddAppointment").modal('hide');
-                                            $('#today-calendar').fullCalendar('refetchEvents');
+                                            ReloadCalendar();
                                         },
                                         function (error) {
                                             $("#pnlAddAppointmentError").slideDown('slow');
@@ -244,7 +244,14 @@
             $('#today-calendar').fullCalendar({
                 events: appointments,
                 timezone: "local",
-                defaultView: 'agendaDay'
+                defaultView: 'agendaDay',
+                slotDuration: '00:15:00',
+                contentHeight: 800,
+                dayClick: function (date, jsEvent, view) {
+                    $("#txtFromDate").datepicker("update", date._d);
+                    $("#txtToDate").datepicker("update", date._d);
+                    $("#modalAddAppointment").modal('show');
+                }
             })
         });
     };

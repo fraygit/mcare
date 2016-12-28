@@ -19,7 +19,54 @@
 
 
 <div class="row">
-    <div class="col-lg-3 col-sm-3 col-xs-12">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Calendar
+                <button class="btn btn-primary waves-effect pull-right" ng-click="AddAppointment()">Add new appointment</button>
+            </div>
+            <div class="panel-wrapper collapse in">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="today-calendar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-12">
+            <div class="white-box">
+                <h3 class="box-title">Add new patient</h3>
+                <div class="text-center">
+                    <button type="button" class="btn btn-info btn-circle btn-xl waves-effect" ng-click="AddPatient()"><i class="fa fa-plus"></i> </button>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="white-box">
+                <h3 class="box-title">Number of active clients</h3>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h6>1st Tri</h6>
+                        <b>80.40%</b>
+                    </div>
+                    <div class="stat-item">
+                        <h6>2nd Tri</h6>
+                        <b>15.40%</b>
+                    </div>
+                    <div class="stat-item">
+                        <h6>3rd Tri</h6>
+                        <b>5.50%</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-lg-3 col-sm-3 col-xs-12">
         <div class="white-box bg-success">
             <h3 class="box-title text-white counter">1st Trimester</h3>
             <ul class="list-inline two-part">
@@ -56,7 +103,7 @@
                 <br/>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 <div class="row">
@@ -82,23 +129,6 @@
                             <div class="col-lg-12">
                                 <canvas id="expenseChart" width="400" height="225"></canvas>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Calendar
-                <button class="btn btn-primary waves-effect pull-right" ng-click="AddAppointment()">Add new appointment</button>
-            </div>
-            <div class="panel-wrapper collapse in">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div id="today-calendar"></div>
                         </div>
                     </div>
                 </div>
