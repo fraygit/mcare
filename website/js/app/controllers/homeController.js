@@ -249,8 +249,14 @@
                 contentHeight: 800,
                 dayClick: function (date, jsEvent, view) {
                     $("#txtFromDate").datepicker("update", date._d);
-                    $("#txtToDate").datepicker("update", date._d);
                     $("#modalAddAppointment").modal('show');
+                    var timeFrom = Pad(date._d.getHours(), 2) + ":" + Pad(date._d.getMinutes(), 2);
+                    $("#txtFromTime").val(timeFrom);
+
+                    var dateTo = new Date(date._d.setMinutes(date._d.getMinutes() + 15));
+                    $("#txtToDate").datepicker("update", dateTo);
+                    var timeTo = Pad(dateTo.getHours(), 2) + ":" + Pad(dateTo.getMinutes(), 2);
+                    $("#txtToTime").val(timeTo);
                 }
             })
         });
