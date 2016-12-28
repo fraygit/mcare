@@ -232,8 +232,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
+                            <label class="control-label">Title</label>
+                            <input type="text" class="form-control" placeholder="Title" ng-model="NewAppointment.Title">
+                            <!--<span class="help-block"> This is inline help </span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <label class="control-label">Where</label>
-                            <input type="text" class="form-control" placeholder="Where" ng-model="NewAppointment.Location">
+                            <input type="text" class="form-control" placeholder="Where" ng-model="NewAppointment.Where">
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>
@@ -242,7 +251,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">What</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" ng-model="NewAppointment.What"></textarea>
                             <!--<span class="help-block"> This is inline help </span>-->
                         </div>
                     </div>

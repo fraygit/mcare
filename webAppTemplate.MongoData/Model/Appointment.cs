@@ -14,6 +14,12 @@ namespace mcare.MongoData.Model
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public string Details { get; set; }
-        public List<string> Attendees { get; set; } 
+        public string Location { get; set; }
+        public List<Attendees> Attendees { get; set; } 
+    }
+    public class Attendees
+    {
+        public string Email { get; set; }
+        public string Name { get; set; }
     }
 }

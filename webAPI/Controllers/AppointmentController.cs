@@ -17,7 +17,7 @@ namespace mcare.API.Controllers
         private readonly IUserRepository userRepository;
         private readonly IAppointmentRepository appointmentRepository;
 
-        public AppointmentController(IAppointmentRepository appointmentRepository)
+        public AppointmentController(IAppointmentRepository appointmentRepository, IUserTokenRepository userTokenRepository, IUserRepository userRepository)
         {
             this.userRepository = userRepository;
             this.userTokenRepository = userTokenRepository;

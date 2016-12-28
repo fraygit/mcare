@@ -148,7 +148,37 @@
                     var datetimeToValid = moment($("#txtToDate").val() + ' ' + $("#txtToTime").val(), "DD/MM/YYYY HH:mm").isValid();
                     if (datetimeToValid) {
                         if (moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm").isBefore(moment($("#txtToDate").val() + ' ' + $("#txtToTime").val(), "DD/MM/YYYY HH:mm"))) {
-                            // Start processing..
+                            if (!isBlank($scope.NewAppointment.Title)) {
+                                // Start processing..
+                                var requestNewAppointment = {
+                                    Title: $scope.NewAppointment.Title,
+                                    Details: $scope.NewAppointment.What,
+                                    DateFrom: datetimeFrom,
+                                    DateTo: datetimeTo,
+                                    Location: $scope.NewAppointment.Where,
+                                    Attendees: $scope.Attendees
+                                };
+
+                                $http.put(appGlobalSettings.apiBaseUrl + '/Appointment?token=' + encodeURIComponent(token),
+                                        JSON.stringify(requestNewAppointment))
+                                        .then(function (data) {
+                                            $("#registerPatientModal").modal('hide');
+                                        },
+                                        function (error) {
+                                            $("#pnlAddAppointmentError").slideDown('slow');
+                                            $scope.AddAppointmentErrorPanel.ErrorMessage = "Error adding appointment.";
+                                            setTimeout(function () {
+                                                $("#pnlAddAppointmentError").slideUp('slow');
+                                            }, 3000);
+                                        });
+                            }
+                            else {
+                                $("#pnlAddAppointmentError").slideDown('slow');
+                                $scope.AddAppointmentErrorPanel.ErrorMessage = "Please input a title.";
+                                setTimeout(function () {
+                                    $("#pnlAddAppointmentError").slideUp('slow');
+                                }, 3000);
+                            }
                         }
                         else {
                             $("#pnlAddAppointmentError").slideDown('slow');
