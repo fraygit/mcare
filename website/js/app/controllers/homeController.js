@@ -5,6 +5,7 @@
 
     $scope.Register = {};
     $scope.RegisterForm = { ShowError: false };
+    $scope.AddAppointmentErrorPanel = { ShowError: false };
 
     $scope.NewAppointment = { Who: -1 };
 
@@ -13,6 +14,7 @@
     $scope.DisplayAttendeeList = [];
 
     $scope.Dob = $("#txtFromDate").datepicker({ format: 'dd/mm/yyyy', });
+    $scope.Dob = $("#txtToDate").datepicker({ format: 'dd/mm/yyyy', });
     $('.clockpicker').clockpicker({
         donetext: 'Done',
         autoclose: true
@@ -135,7 +137,59 @@
     };
 
     $scope.SaveAppointment = function () {
-        var datetimeFrom = moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm")._d
+
+        if (!isBlank($("#txtFromDate").val()) && !isBlank($("#txtFromTime").val())) {
+            if (!isBlank($("#txtToDate").val()) && !isBlank($("#txtToTime").val())) {
+
+                var datetimeFrom = moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm")._d
+                datetimeFromValid = moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm").isValid();
+                if (datetimeFromValid) {
+                    var datetimeTo = moment($("#txtToDate").val() + ' ' + $("#txtToTime").val(), "DD/MM/YYYY HH:mm")._d
+                    var datetimeToValid = moment($("#txtToDate").val() + ' ' + $("#txtToTime").val(), "DD/MM/YYYY HH:mm").isValid();
+                    if (datetimeToValid) {
+                        if (moment($("#txtFromDate").val() + ' ' + $("#txtFromTime").val(), "DD/MM/YYYY HH:mm").isBefore(moment($("#txtToDate").val() + ' ' + $("#txtToTime").val(), "DD/MM/YYYY HH:mm"))) {
+                            // Start processing..
+                        }
+                        else {
+                            $("#pnlAddAppointmentError").slideDown('slow');
+                            $scope.AddAppointmentErrorPanel.ErrorMessage = "From date time must be before the to date to.";
+                            setTimeout(function () {
+                                $("#pnlAddAppointmentError").slideUp('slow');
+                            }, 3000);
+                        }
+                    }
+                    else {
+                        $("#pnlAddAppointmentError").slideDown('slow');
+                        $scope.AddAppointmentErrorPanel.ErrorMessage = "Invalid to date time.";
+                        setTimeout(function () {
+                            $("#pnlAddAppointmentError").slideUp('slow');
+                        }, 3000);
+                    }
+                }
+                else {
+                    $("#pnlAddAppointmentError").slideDown('slow');
+                    $scope.AddAppointmentErrorPanel.ErrorMessage = "Invalid from date time.";
+                    setTimeout(function () {
+                        $("#pnlAddAppointmentError").slideUp('slow');
+                    }, 3000);
+                }
+                
+            }
+            else {
+                $("#pnlAddAppointmentError").slideDown('slow');
+                $scope.AddAppointmentErrorPanel.ErrorMessage = "Please input a valid to date time.";
+                setTimeout(function () {
+                    $("#pnlAddAppointmentError").slideUp('slow');
+                }, 3000);
+            }
+        }
+        else {
+            $("#pnlAddAppointmentError").slideDown('slow');
+            $scope.AddAppointmentErrorPanel.ErrorMessage = "Please input a valid from date time.";
+            setTimeout(function () {
+                $("#pnlAddAppointmentError").slideUp('slow');
+            }, 3000);
+        }
     };
 
 

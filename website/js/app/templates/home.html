@@ -270,9 +270,9 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-danger alert-dismissable" ng-show="RegisterForm.ShowError">
+            <div class="alert alert-danger alert-dismissable" id="pnlAddAppointmentError" style="display:none;">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                {{ RegisterForm.ErrorMessage }}
+                {{ AddAppointmentErrorPanel.ErrorMessage }}
             </div>
 
             <div class="modal-footer">
